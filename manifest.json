@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Storybook to Figma",
+  "version": "0.1",
+  "description": "Extracts Storybook components and sends them to Figma.",
+  "permissions": ["scripting", "activeTab", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
